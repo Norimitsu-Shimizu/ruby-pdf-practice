@@ -46,3 +46,6 @@ group :development do
   # gem "spring"
 end
 
+gem 'matrix'
+gem 'prawn'
+gem 'prawn-table'
