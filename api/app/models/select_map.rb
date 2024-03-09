@@ -1,3 +1,2 @@
 class SelectMap < ApplicationRecord
-
 end
