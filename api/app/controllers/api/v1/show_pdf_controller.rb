@@ -1,5 +1,7 @@
 class Api::V1::ShowPdfController < ApplicationController
-  def index
+  def create
+    @select_map = SelectMap.new(select_map_params)
+    @select_map.save
     respond_to do |format|
       format.pdf do
         show_pdf = ShowPdf.new().render
@@ -9,5 +11,11 @@ class Api::V1::ShowPdfController < ApplicationController
           disposition: 'inline'
       end
     end
+  end
+
+  private
+
+  def select_map_params
+    params.permit(:issue, :sub_issue, :intra_area, :outside_area)
   end
 end
