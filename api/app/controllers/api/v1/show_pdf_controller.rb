@@ -4,7 +4,7 @@ class Api::V1::ShowPdfController < ApplicationController
     @select_map.save
     respond_to do |format|
       format.pdf do
-        show_pdf = ShowPdf.new().render
+        show_pdf = ShowPdf.new(@select_map).render
         send_data show_pdf,
           filename: "test.pdf",
           type: 'application/pdf',
